@@ -1,0 +1,43 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  bump_version:
+    name: Release new version of the project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+      - name: Set git config
+        run: |
+          git config --global user.email github-actions[bot]
+          git config --global user.name github-actions[bot]@users.noreply.github.com
+      - name: Update version of Clever-Shop!
+        run: |
+          npm version patch -m "Version upgraded! It's %s version now"
+          git push --follow-tags
+  project:
+    needs: bump_version
+    name: Creating a build for the project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+      - name: Install dependencies
+        run: |
+          yarn install
+      - name: Creating build
+        run: |
+          yarn build
