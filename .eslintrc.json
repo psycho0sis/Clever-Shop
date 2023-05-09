@@ -1,0 +1,65 @@
+{
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "warnOnUnsupportedTypeScriptVersion": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@next/next/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["react", "import", "simple-import-sort"],
+  "rules": {
+    // REACT
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-fragments": ["warn", "element"],
+    // IMPORT
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          // react
+          ["^react", "^redux", "next"],
+          // libraries
+          ["^@?\\w"],
+          // internal folders
+          ["^(hooks|store|api|tests|utils|data|constants|types)"],
+          // components
+          ["^(pages|components)\\/.+"],
+          // any files from the current folder// Other relative imports. Put same-folder imports and `.` last.
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+          // Style imports.
+          ["^.+\\.s?css$"]
+        ]
+      }
+    ],
+    "simple-import-sort/exports": "error",
+    "import/no-useless-path-segments": ["error", { "commonjs": true }],
+    "import/no-cycle": "error",
+    "import/no-duplicates": "error",
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-self-import": "error",
+    "import/no-deprecated": "warn",
+    "import/no-empty-named-blocks": "error",
+    // OTHER
+    "no-console": "warn"
+  }
+}
