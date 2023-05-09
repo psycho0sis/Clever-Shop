@@ -1,6 +1,6 @@
 import { spartanFont } from '../styles/font';
-
 import StyledComponentsRegistry from './registry';
+
 import './globals.css';
 
 export const metadata = {

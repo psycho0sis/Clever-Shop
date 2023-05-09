@@ -5,10 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "check:ts": "tsc --incremental false",
     "lint": "next lint",
     "lint:fix": "yarn lint --fix",
-    "check:ts": "tsc --incremental false",
+    "ready:local": "./ci-tools/ready-local.sh",
+    "start": "next start",
     "styles": "stylelint \"src/**/*.ts\" --max-warnings=0",
     "styles:fix": "stylelint \"src/**/*.ts\" --fix"
   },
