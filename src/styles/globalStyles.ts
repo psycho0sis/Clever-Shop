@@ -1,11 +1,14 @@
-:root {
+import { createGlobalStyle } from 'styled-components';
+
+export const GlobalStyles = createGlobalStyle`
+ :root {
   /** Colors */
 
   --dark: #121212;
   --dark-grey: #9c9c9c;
   --grey: #e5e5e5;
   --gr-white: #f8f8f8;
-  --white: #ffffff;
+  --white: #fff;
   --pink: #e91e63;
   --yellow: #f0cc84;
   --red: #d61313;
@@ -13,33 +16,33 @@
 
   /** With transparency */
 
-  --dark-shadow: rgb(18, 18, 18, 0.4);
-  --white-08: rgb(255, 255, 255, 0.8);
+  --dark-shadow: rgb(18 18 18 / 40%);
+  --white-08: rgb(255 255 255 / 80%);
 }
 
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   border: 0;
 }
 
 *,
-*:before,
-*:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
+*::before,
+*::after {
   box-sizing: border-box;
-}
-
-:focus,
-:active {
-  outline: none;
 }
 
 a:focus,
 a:active {
   outline: none;
 }
+
+a,
+a:visited, 
+a:hover {
+  text-decoration: none;
+}
+
 
 nav,
 footer,
@@ -50,16 +53,13 @@ aside {
 
 html,
 body {
-  height: 100%;
   position: relative;
   width: 100%;
-  font-size: 100%;
-  line-height: 1;
-  font-size: 14px;
+  height: 100%;
   overflow: hidden;
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
+  font-size: 100%;
+  font-size: 14px;
+  line-height: 1;
 }
 
 input,
@@ -81,15 +81,6 @@ button::-moz-focus-inner {
   border: 0;
 }
 
-a,
-a:visited {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
 ul li {
   list-style: none;
 }
@@ -104,6 +95,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: inherit;
   font-weight: 400;
+  font-size: inherit;
 }
+`;

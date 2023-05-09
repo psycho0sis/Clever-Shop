@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - '!main'
+      - feature/**
 
 jobs:
   project:
@@ -21,7 +21,7 @@ jobs:
           yarn install
       - name: Check stylelint
         run: |
-          yarn stylelint
+          yarn styles
       - name: Check eslint
         run: |
           yarn lint
