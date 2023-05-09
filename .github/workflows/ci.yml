@@ -19,6 +19,9 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install
+      - name: Check stylelint
+        run: |
+          yarn styles
       - name: Check eslint
         run: |
           yarn lint
