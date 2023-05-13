@@ -1,0 +1,5 @@
+[build]
+command = yarn run build
+
+[context.storybook]
+command = yarn run build-storybook
