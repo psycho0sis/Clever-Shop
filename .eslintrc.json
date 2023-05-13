@@ -60,6 +60,12 @@
     "import/no-deprecated": "warn",
     "import/no-empty-named-blocks": "error",
     // OTHER
-    "no-console": "warn"
+    "no-console": "warn",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
   }
 }
