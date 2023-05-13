@@ -1,5 +1,5 @@
 [build]
-command = yarn run build
+command = npm run build
 
 [context.storybook]
-command = yarn run build-storybook
+command = npm run build-storybook
