@@ -10,9 +10,9 @@ const meta: Meta<typeof Button> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Button>;
+type TStory = StoryObj<typeof Button>;
 
-export const BlockButton: Story = {
+export const BlockButton: TStory = {
   args: {
     block: false,
     buttonTheme: 'dark',
