@@ -22,7 +22,9 @@
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:@next/next/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "next/core-web-vitals",
+    "plugin:storybook/recommended"
   ],
   "plugins": ["react", "import", "simple-import-sort"],
   "rules": {

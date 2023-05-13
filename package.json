@@ -11,7 +11,9 @@
     "ready:local": "./src/ci-tools/ready-local.sh",
     "start": "next start",
     "styles": "stylelint \"src/**/*.ts\" --max-warnings=0",
-    "styles:fix": "stylelint \"src/**/*.ts\" --fix"
+    "styles:fix": "stylelint \"src/**/*.ts\" --fix",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "next": "13.4.1",
@@ -21,6 +23,14 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.4.1",
+    "@storybook/addon-essentials": "^7.0.11",
+    "@storybook/addon-interactions": "^7.0.11",
+    "@storybook/addon-links": "^7.0.11",
+    "@storybook/addon-styling": "^1.0.8",
+    "@storybook/blocks": "^7.0.11",
+    "@storybook/nextjs": "^7.0.11",
+    "@storybook/react": "^7.0.11",
+    "@storybook/testing-library": "^0.0.14-next.2",
     "@stylelint/postcss-css-in-js": "^0.38.0",
     "@types/node": "20.1.0",
     "@types/react": "18.2.6",
@@ -36,9 +46,11 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-storybook": "^0.6.12",
     "postcss": "^8.4.23",
     "postcss-syntax": "^0.36.2",
     "prettier": "^2.8.8",
+    "storybook": "^7.0.11",
     "stylelint": "^15.4.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^33.0.0",
