@@ -1,16 +1,16 @@
-type ButtonThemeType = 'light' | 'dark';
+type TButtonTheme = 'light' | 'dark';
 
-type SizesType = 's' | 'm' | 'l';
+type TSizes = 's' | 'm' | 'l';
 
 export interface IStyledButton {
   block?: boolean;
-  buttonTheme?: ButtonThemeType;
+  buttonTheme?: TButtonTheme;
   fontSize?: number;
   fontWeight?: number;
   lineHeight?: number;
   margins?: string;
   outline?: boolean;
-  size?: SizesType;
+  size?: TSizes;
 }
 
 export interface IButtonProps extends IStyledButton {
