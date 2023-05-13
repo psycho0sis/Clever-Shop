@@ -8,7 +8,7 @@
     "check:ts": "tsc --incremental false",
     "lint": "next lint",
     "lint:fix": "yarn lint --fix",
-    "ready:local": "./ci-tools/ready-local.sh",
+    "ready:local": "./src/ci-tools/ready-local.sh",
     "start": "next start",
     "styles": "stylelint \"src/**/*.ts\" --max-warnings=0",
     "styles:fix": "stylelint \"src/**/*.ts\" --fix"
