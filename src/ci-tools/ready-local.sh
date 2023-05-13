@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 stepCnt=0
-stepTotal=3
+stepTotal=4
 
 function runCommand() {
     ((stepCnt++))
@@ -12,6 +12,8 @@ function runCommand() {
 }
 
 runCommand "yarn lint:fix" 'Форматирование измененного кода. eslint'
+
+runCommand "yarn styles" 'Проверка стилей. stylelint'
 
 runCommand "yarn styles:fix" 'Форматирование измененого кода. stylelint'
 

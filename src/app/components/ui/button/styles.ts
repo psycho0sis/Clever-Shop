@@ -18,8 +18,8 @@ export const StyledButton = styled.button<IStyledButton>`
   width: 100%;
   min-width: 108px;
   max-width: ${({ block, size }) => (block ? 'none' : size && widths[size])};
-  padding: ${({ size }) => (size ? paddings[size] : paddings['s'])};
   margin: ${({ margins }) => margins};
+  padding: ${({ size }) => (size ? paddings[size] : paddings['s'])};
   color: ${({ buttonTheme }) =>
     buttonTheme === 'light' ? 'var(--dark)' : 'var(--white)'};
   text-transform: uppercase;

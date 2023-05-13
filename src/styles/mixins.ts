@@ -1,15 +1,15 @@
 interface IFont {
-    lineHeight?: number;
-    size?: number;
-    weight?: number;
+  lineHeight?: number;
+  size?: number;
+  weight?: number;
 }
 
 interface IFlex {
-    alignment?: string;
-    direction?: string;
-    gap?: string;
-    justify?: string;
-    wrap?: boolean;
+  alignment?: string;
+  direction?: string;
+  gap?: string;
+  justify?: string;
+  wrap?: boolean;
 }
 
 export const font = ({ lineHeight, size, weight }: IFont) => `

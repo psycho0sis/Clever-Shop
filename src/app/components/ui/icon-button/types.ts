@@ -1,8 +1,8 @@
 export interface IStyledIconButton {
-    isFill: boolean;
+  isFill: boolean;
 }
 
 export interface IIconButtonProps extends IStyledIconButton {
-    children: JSX.Element;
-    onClick: (e?: React.MouseEvent<HTMLButtonElement>) => void;
+  children: JSX.Element;
+  onClick: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 }
