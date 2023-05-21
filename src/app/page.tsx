@@ -1,5 +1,11 @@
 'use client';
 
+import { BenefitsBlock } from 'components/benefits-block';
+
 export default function Home() {
-  return <main>hello</main>;
+  return (
+    <main>
+      <BenefitsBlock />
+    </main>
+  );
 }
