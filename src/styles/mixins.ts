@@ -22,7 +22,7 @@ export const flex = ({ alignment, direction, gap, justify, wrap }: IFlex) => `
     display: flex;
     align-items: ${alignment || 'center'};
     gap: ${gap || ''};
-    flex-wrap: ${wrap ? 'wrap' : 'no-wrap'};
+    flex-wrap: ${wrap ? 'wrap' : 'nowrap'};
     flex-direction: ${direction || 'row'};
     justify-content: ${justify || 'space-between'};
 `;
