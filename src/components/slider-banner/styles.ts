@@ -12,7 +12,7 @@ export const SliderWrapper = styled.div`
   overflow: hidden;
 `;
 
-export const Slider = styled.div`
+export const SliderContent = styled.div`
   display: flex;
   width: 540px;
   transition: all 250ms linear;

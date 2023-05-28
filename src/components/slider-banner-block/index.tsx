@@ -1,3 +1,4 @@
+import type { FC } from 'react';
 import Image from 'next/image';
 
 import { Container } from 'components/layout/container';
@@ -6,7 +7,7 @@ import { SliderBanner } from 'components/slider-banner';
 import { links } from './config';
 import { Category, LinksBlock, StyledLink, Wrapper } from './styles';
 
-export const SliderBannerBlock = () => {
+export const SliderBannerBlock: FC = () => {
   return (
     <Container>
       <Wrapper>

@@ -1,11 +1,13 @@
-import { FC, TouchEvent, useEffect, useState } from 'react';
+import type { FC } from 'react';
 import Image from 'next/image';
+
+import { useCurrentSlide } from 'hooks/use-current-slide';
 
 import {
   Banner,
   NextButton,
   PrevButton,
-  Slider,
+  SliderContent,
   SliderWrapper,
   Subtitle,
   Title,
@@ -16,46 +18,13 @@ interface IPops {
 }
 
 export const SliderBanner: FC<IPops> = ({ children }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [length, setLength] = useState(children.length);
-
-  const [touchPosition, setTouchPosition] = useState<number | null>(null);
-
-  useEffect(() => {
-    setLength(children.length);
-  }, [children]);
-
-  const handleNextSlide = () => {
-    if (currentIndex < length - 1) {
-      setCurrentIndex((prevState) => prevState + 1);
-    }
-  };
-
-  const handlePrevSlide = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex((prevState) => prevState - 1);
-    }
-  };
-
-  const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
-    const { clientX } = e.touches[0];
-    setTouchPosition(clientX);
-  };
-
-  const handleTouchMove = (e: TouchEvent<HTMLDivElement>) => {
-    const touchDown = touchPosition;
-
-    if (touchDown === null) return;
-
-    const { clientX } = e.touches[0];
-    const diff = touchDown - clientX;
-
-    if (diff > 5) handleNextSlide();
-
-    if (diff < -5) handlePrevSlide();
-
-    setTouchPosition(null);
-  };
+  const {
+    currentIndex,
+    handleNextSlide,
+    handlePrevSlide,
+    handleTouchStart,
+    handleTouchMove,
+  } = useCurrentSlide(children.length);
 
   return (
     <SliderWrapper
@@ -71,12 +40,14 @@ export const SliderBanner: FC<IPops> = ({ children }) => {
         />
       </PrevButton>
       <Banner>
-        <Subtitle>BANNER {currentIndex}</Subtitle>
+        <Subtitle>BANNER</Subtitle>
         <Title>your Title text</Title>
       </Banner>
-      <Slider style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+      <SliderContent
+        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+      >
         {children}
-      </Slider>
+      </SliderContent>
       <NextButton onClick={handleNextSlide}>
         <Image
           src='/images/next-arrow.svg'
