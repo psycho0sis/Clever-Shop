@@ -1,4 +1,4 @@
-import { TouchEvent, useState } from 'react';
+import { FC, TouchEvent, useEffect, useState } from 'react';
 import Image from 'next/image';
 
 import {
@@ -11,51 +11,50 @@ import {
   Title,
 } from './styles';
 
-export const SliderBanner = () => {
-  const [currentSlide, setCurrentSlide] = useState(1);
-  const [touchPosition, setTouchPosition] = useState(0);
-  const images = [0, 1];
+interface IPops {
+  children: JSX.Element[];
+}
 
-  const handlePrevSlide = () => {
-    setCurrentSlide((prev) => prev + 1);
+export const SliderBanner: FC<IPops> = ({ children }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [length, setLength] = useState(children.length);
 
-    if (currentSlide === images.length - 1) {
-      setCurrentSlide(0);
+  const [touchPosition, setTouchPosition] = useState<number | null>(null);
+
+  useEffect(() => {
+    setLength(children.length);
+  }, [children]);
+
+  const handleNextSlide = () => {
+    if (currentIndex < length - 1) {
+      setCurrentIndex((prevState) => prevState + 1);
     }
   };
 
-  const handleNextSlide = () => {
-    if (currentSlide === 0) {
-      setCurrentSlide(images.length - 1);
+  const handlePrevSlide = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex((prevState) => prevState - 1);
     }
-
-    setCurrentSlide((prev) => prev - 1);
   };
 
   const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
-    const touchDown = e.touches[0].clientX;
-    setTouchPosition(touchDown);
+    const { clientX } = e.touches[0];
+    setTouchPosition(clientX);
   };
 
   const handleTouchMove = (e: TouchEvent<HTMLDivElement>) => {
     const touchDown = touchPosition;
 
-    if (touchDown === null) {
-      return;
-    }
+    if (touchDown === null) return;
 
-    const currentTouch = e.touches[0].clientX;
-    const diff = touchDown - currentTouch;
+    const { clientX } = e.touches[0];
+    const diff = touchDown - clientX;
 
-    if (diff > 100) {
-      handleNextSlide();
-    }
+    if (diff > 5) handleNextSlide();
 
-    if (diff < -100) {
-      handlePrevSlide();
-    }
+    if (diff < -5) handlePrevSlide();
 
-    setTouchPosition(0);
+    setTouchPosition(null);
   };
 
   return (
@@ -72,11 +71,11 @@ export const SliderBanner = () => {
         />
       </PrevButton>
       <Banner>
-        <Subtitle>BANNER {currentSlide}</Subtitle>
+        <Subtitle>BANNER {currentIndex}</Subtitle>
         <Title>your Title text</Title>
       </Banner>
-      <Slider>
-        <img src={`/images/slider-${currentSlide}.png`} alt='Women clothes' />
+      <Slider style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+        {children}
       </Slider>
       <NextButton onClick={handleNextSlide}>
         <Image

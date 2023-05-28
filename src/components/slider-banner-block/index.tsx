@@ -10,7 +10,10 @@ export const SliderBannerBlock = () => {
   return (
     <Container>
       <Wrapper>
-        <SliderBanner />
+        <SliderBanner>
+          <img src='/images/slider-0.png' alt='Women clothes' />
+          <img src='/images/slider-1.png' alt='Women clothes' />
+        </SliderBanner>
         <LinksBlock>
           {links.map(
             ({

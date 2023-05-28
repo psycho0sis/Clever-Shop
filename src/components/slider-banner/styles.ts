@@ -7,22 +7,27 @@ export const Wrapper = styled.div`
 
 export const SliderWrapper = styled.div`
   position: relative;
-  flex: 1 0 540px;
+  flex: 0 0 540px;
   width: 100%;
+  overflow: hidden;
 `;
 
 export const Slider = styled.div`
+  display: flex;
+  width: 540px;
+  transition: all 250ms linear;
+
   & img {
+    flex-grow: 1;
+    flex-shrink: 0;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    overflow: hidden;
   }
 `;
 
 const button = styled.button`
   position: absolute;
   top: 47%;
+  z-index: 2;
   width: 40px;
   height: 40px;
   background-color: var(--white);
@@ -40,18 +45,17 @@ const button = styled.button`
 
 export const PrevButton = styled(button)`
   left: 4%;
-  z-index: 2;
 `;
 
 export const NextButton = styled(button)`
   right: 4%;
-  z-index: 2;
 `;
 
 export const Banner = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
+  z-index: 2;
   width: 100%;
   max-width: 290px;
   height: 100px;
