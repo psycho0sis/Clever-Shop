@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import type { TouchEvent } from 'react';
+import { useEffect, useState } from 'react';
 
 export const useCurrentSlide = (quantityOfSlides: number) => {
   const [currentIndex, setCurrentIndex] = useState(0);
