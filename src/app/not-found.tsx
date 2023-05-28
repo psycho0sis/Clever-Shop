@@ -8,7 +8,7 @@ const NotFound: FC = () => {
   return (
     <Wrapper>
       <Title>404 NOT FOUND</Title>
-      <Subtitle>Keep calm and return to the previous page</Subtitle>
+      <Subtitle href='/'>Keep calm and return to the previous page</Subtitle>
     </Wrapper>
   );
 };

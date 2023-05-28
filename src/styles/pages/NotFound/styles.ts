@@ -1,13 +1,15 @@
+import Link from 'next/link';
+
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  align-items: center;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  height: 100%;
+  align-items: center;
   justify-content: center;
   width: 100%;
+  height: 100%;
 `;
 
 export const Title = styled.h1`
@@ -16,7 +18,7 @@ export const Title = styled.h1`
   text-align: center;
 `;
 
-export const Subtitle = styled.p`
+export const Subtitle = styled(Link)`
   color: var(--black);
   font-size: 30px;
   text-align: center;
