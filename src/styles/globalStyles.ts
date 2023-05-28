@@ -56,7 +56,6 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden;
   font-size: 100%;
   font-size: 14px;
   line-height: 1;
