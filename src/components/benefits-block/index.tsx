@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import { Container } from 'components/layout/container';
 
-import { benefits } from './data';
+import { benefits } from './config';
 import {
   BenefitsBlockWrapper,
   BenefitsContentWrapper,
