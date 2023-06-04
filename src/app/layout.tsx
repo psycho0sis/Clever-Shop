@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 
-import { Navigation } from 'components/layout/navigation';
+import { Container } from 'components/layout/container';
+import { Header } from 'components/layout/header';
+import { TopBar } from 'components/layout/header/top-bar';
 
 import { spartanFont } from '../styles/font';
 import StyledComponentsRegistry from './registry';
@@ -21,7 +23,10 @@ export default function RootLayout({
     <html lang='en'>
       <body className={spartanFont.className}>
         <StyledComponentsRegistry>
-          <Navigation />
+          <TopBar />
+          <Container>
+            <Header />
+          </Container>
           {children}
         </StyledComponentsRegistry>
       </body>

@@ -8,7 +8,7 @@ interface ICategory {
 }
 
 export const Wrapper = styled.div`
-  ${flex({ gap: '36px', wrap: true, justify: 'center' })};
+  ${flex({ gap: '30px', wrap: true, justify: 'center' })};
 `;
 
 export const LinksBlock = styled.div`
