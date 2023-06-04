@@ -17,7 +17,7 @@ export const BenefitsContentWrapper = styled.div`
 export const BenefitsItemWrapper = styled.div`
   ${flex({ alignment: 'start', gap: '13px' })};
 
-  padding: 32px 10px;
+  padding: 32px;
 
   @media screen and (width <= 768px) {
     ${flex({ direction: 'column' })};

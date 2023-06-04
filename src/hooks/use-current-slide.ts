@@ -8,7 +8,7 @@ export const useCurrentSlide = (quantityOfSlides: number) => {
 
   useEffect(() => {
     setLength(length);
-  }, [quantityOfSlides]);
+  }, [quantityOfSlides, length]);
 
   const handleNextSlide = () => {
     if (currentIndex < length - 1)
