@@ -1,3 +1,5 @@
+'use client';
+
 import type { FC } from 'react';
 import React from 'react';
 
@@ -6,10 +8,10 @@ import { IIconButtonProps } from './types';
 
 export const IconButton: FC<IIconButtonProps> = ({
   children,
-  isFill,
+  isfill,
   onClick,
 }) => (
-  <StyledIconButton isFill={isFill} onClick={onClick}>
+  <StyledIconButton isfill={isfill} onClick={onClick}>
     {children}
   </StyledIconButton>
 );

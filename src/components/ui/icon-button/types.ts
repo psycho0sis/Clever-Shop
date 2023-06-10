@@ -1,5 +1,5 @@
 export interface IStyledIconButton {
-  isFill: boolean;
+  isfill: string;
 }
 
 export interface IIconButtonProps extends IStyledIconButton {
