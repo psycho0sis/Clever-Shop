@@ -19,7 +19,7 @@ export const StyledIconButton = styled.button<IStyledIconButton>`
   &:active {
     & svg {
       & path:first-child {
-        fill: ${({ isFill }) => (isFill ? 'var(--dark)' : 'none')};
+        fill: ${({ isfill }) => (isfill ? 'var(--dark)' : 'none')};
         stroke-width: 2;
       }
     }
