@@ -4,7 +4,10 @@ import { font } from 'styles/mixins';
 import { paddings, widths } from './config';
 import { IStyledButton } from './types';
 
-export const StyledButton = styled.button<IStyledButton>`
+export const StyledButton = styled.button.withConfig({
+  shouldForwardProp: (propName) =>
+    propName !== 'buttonTheme' && propName !== 'block',
+})<IStyledButton>`
   ${({ fontSize, fontWeight, lineHeight }) =>
     font({
       lineHeight: lineHeight || 15,

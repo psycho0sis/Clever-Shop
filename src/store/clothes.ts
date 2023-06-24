@@ -1,16 +1,26 @@
 import axios from 'axios';
-import { action, makeAutoObservable, observable, toJS } from 'mobx';
+import { action, makeObservable, observable } from 'mobx';
+import { fromPromise, IPromiseBasedObservable } from 'mobx-utils';
 
 import { IClothes } from './types';
 
 const URL = 'https://64692499183682d6143abd85.mockapi.io/clever-shop/api';
 
+const getClothes = async (path: string) =>
+  (
+    await axios.get<IClothes[]>(`${URL}/${path}`, {
+      headers: {
+        Accept: 'application/json',
+      },
+    })
+  ).data;
+
 class Clothes {
-  womenClothes: IClothes[] = [];
-  menClothes: IClothes[] = [];
+  womenClothes?: IPromiseBasedObservable<IClothes[]>;
+  menClothes?: IPromiseBasedObservable<IClothes[]>;
 
   constructor() {
-    makeAutoObservable({
+    makeObservable(this, {
       womenClothes: observable,
       menClothes: observable,
       getWomenClothes: action,
@@ -19,35 +29,11 @@ class Clothes {
   }
 
   getWomenClothes = async () => {
-    try {
-      const { data } = await axios.get<IClothes[]>(`${URL}/women`, {
-        headers: {
-          Accept: 'application/json',
-        },
-      });
-
-      this.womenClothes = [...this.womenClothes, ...data];
-
-      return toJS(this.womenClothes);
-    } catch (error) {
-      console.error(error);
-    }
+    this.womenClothes = fromPromise(getClothes('women'));
   };
 
   getMenClothes = async () => {
-    try {
-      const { data } = await axios.get<IClothes[]>(`${URL}/men`, {
-        headers: {
-          Accept: 'application/json',
-        },
-      });
-
-      this.menClothes = [...this.menClothes, ...data];
-
-      return toJS(this.menClothes);
-    } catch (error) {
-      console.error(error);
-    }
+    this.menClothes = fromPromise(getClothes('men'));
   };
 }
 

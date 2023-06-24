@@ -1,11 +1,11 @@
 'use client';
 
-import type { FC } from 'react';
+import type { FC, ReactNode } from 'react';
 
 import { StyledContainer } from './styles';
 
 interface IProps {
-  children: JSX.Element | JSX.Element[];
+  children: ReactNode | ReactNode[];
 }
 
 export const Container: FC<IProps> = ({ children }) => (

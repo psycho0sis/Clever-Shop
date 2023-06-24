@@ -6,6 +6,9 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  images: {
+    domains: ['a.lmcdn.ru'],
+  },
 };
 
 module.exports = nextConfig;
