@@ -1,19 +1,21 @@
-import { FC } from 'react';
+'use client';
 
-import { v4 as uuidv4 } from 'uuid';
+import type { FC } from 'react';
 
 import { IClothes } from 'store/types';
 
+import { Card } from 'components/card';
+
+import { CardsWrapper } from './styles';
+
 interface IProps {
-  goods: IClothes[];
+  goods: IClothes[] | undefined;
 }
 
-export const GoodsBlock: FC<IProps> = ({ goods }) => {
-  return (
-    <div>
-      {goods?.map((item) => (
-        <h1 key={uuidv4()}>{item.name}</h1>
-      ))}
-    </div>
-  );
-};
+export const GoodsBlock: FC<IProps> = ({ goods }) => (
+  <CardsWrapper>
+    {goods?.slice(0, 8).map((item) => (
+      <Card key={item.id} {...item} />
+    ))}
+  </CardsWrapper>
+);

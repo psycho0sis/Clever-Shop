@@ -1,18 +1,28 @@
-import { FC, useEffect, useState } from 'react';
+'use client';
+
+import { FC, useEffect } from 'react';
 
 import { observer } from 'mobx-react-lite';
 
 import clothes from 'store/clothes';
-import { IClothes } from 'store/types';
 
 import { GoodsBlock } from 'components/goods-block';
+import { GoodsSkeleton } from 'components/goods-skeleton';
 
 export const GoodsMenContainer: FC = observer(() => {
-  const [goods, setGoods] = useState<IClothes[]>([]);
+  const { getMenClothes, menClothes } = clothes;
 
   useEffect(() => {
-    clothes.getMenClothes().then((res) => res && setGoods(res));
-  }, []);
+    getMenClothes();
+  }, [getMenClothes]);
 
-  return <GoodsBlock goods={goods} />;
+  if (!menClothes) {
+    return null;
+  }
+
+  return menClothes?.case({
+    pending: () => <GoodsSkeleton />,
+    rejected: () => <div>Error</div>,
+    fulfilled: (value) => <GoodsBlock goods={value} />,
+  });
 });

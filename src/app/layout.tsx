@@ -20,14 +20,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
+    <html suppressHydrationWarning lang='en'>
       <body className={spartanFont.className}>
         <StyledComponentsRegistry>
           <TopBar />
           <Container>
             <Header />
+            {children}
           </Container>
-          {children}
         </StyledComponentsRegistry>
       </body>
     </html>

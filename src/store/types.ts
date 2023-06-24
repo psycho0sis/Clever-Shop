@@ -16,7 +16,7 @@ export interface IClothes {
   category: 'men' | 'women';
   discount: string;
   id: string;
-  images: string[];
+  images: { color: string; url: string; id?: string }[];
   material: string;
   name: string;
   particulars: IParticulars;

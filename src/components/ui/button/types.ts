@@ -15,5 +15,5 @@ export interface IStyledButton {
 
 export interface IButtonProps extends IStyledButton {
   text: string;
-  onClick: (e?: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 }
