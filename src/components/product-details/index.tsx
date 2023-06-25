@@ -1,6 +1,7 @@
 'use client';
 
 import type { FC } from 'react';
+import { ReactImageGalleryItem } from 'react-image-gallery';
 
 import { observer } from 'mobx-react-lite';
 
@@ -14,10 +15,11 @@ import { Characteristics, Layout } from './styles';
 
 export const ProductDetails: FC<IClothesResponse> = observer(
   ({ brand, images, name, rating, reviews }) => {
-    const imagesToArr = images?.map(({ url }) => ({
-      original: url,
-      thumbnail: url,
-    }));
+    const imagesToArr: ReadonlyArray<ReactImageGalleryItem> =
+      images?.map(({ url }) => ({
+        original: url,
+        thumbnail: url,
+      })) || [];
 
     return (
       <>

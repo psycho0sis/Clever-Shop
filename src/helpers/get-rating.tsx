@@ -1,8 +1,11 @@
+import type { ReactNode } from 'react';
 import Image from 'next/image';
 
 const DEFAULT_AMOUNT_OF_STARS = 5;
 
-export const getRating = (rating: number) =>
+type IGetRating = (rating?: number) => ReactNode[];
+
+export const getRating: IGetRating = (rating = 0) =>
   new Array(DEFAULT_AMOUNT_OF_STARS)
     .fill(
       <Image

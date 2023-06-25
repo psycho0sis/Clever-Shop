@@ -1,10 +1,10 @@
-import type { FC } from 'react';
+import type { FC, MouseEventHandler } from 'react';
 import Image from 'next/image';
 
 import { StyledPrevButton } from './styles';
 
 interface IProps {
-  handlePrevSlide: () => void;
+  handlePrevSlide: MouseEventHandler<HTMLElement>;
   position: {
     top: number;
     left: number;

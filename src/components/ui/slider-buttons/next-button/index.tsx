@@ -1,10 +1,10 @@
-import type { FC } from 'react';
+import type { FC, MouseEventHandler } from 'react';
 import Image from 'next/image';
 
 import { StyledNextButton } from './styles';
 
 interface IProps {
-  handleNextSlide: () => void;
+  handleNextSlide: MouseEventHandler<HTMLElement>;
   position: {
     top: number;
     right: number;
