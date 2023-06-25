@@ -1,5 +1,7 @@
 import type { FC } from 'react';
 
+import { ProductDetailsContainer } from 'components/product-details-container';
+
 interface IProps {
   params: {
     id: string;
@@ -8,12 +10,16 @@ interface IProps {
 
 export const generateMetadata = ({ params: { id } }: IProps) => {
   return {
-    title: `Product ${id}`,
+    title: `${id}`,
   };
 };
 
 const ProductPage: FC<IProps> = ({ params: { id } }) => {
-  return <div>product {id}</div>;
+  return (
+    <div>
+      <ProductDetailsContainer category='women' id={id} />
+    </div>
+  );
 };
 
 export default ProductPage;

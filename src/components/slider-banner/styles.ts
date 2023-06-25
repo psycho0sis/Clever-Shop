@@ -24,33 +24,6 @@ export const SliderContent = styled.div`
   }
 `;
 
-const button = styled.button`
-  position: absolute;
-  top: 47%;
-  z-index: 2;
-  width: 40px;
-  height: 40px;
-  background-color: var(--white);
-  border-radius: 50%;
-  transition: 0.5s all ease;
-
-  &:active {
-    box-shadow: 4px 4px 24px 0 rgb(34 60 80 / 20%);
-  }
-
-  @media (hover: none) and (pointer: coarse) {
-    display: none;
-  }
-`;
-
-export const PrevButton = styled(button)`
-  left: 4%;
-`;
-
-export const NextButton = styled(button)`
-  right: 4%;
-`;
-
 export const Banner = styled.div`
   position: absolute;
   top: 50%;

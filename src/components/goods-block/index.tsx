@@ -2,14 +2,14 @@
 
 import type { FC } from 'react';
 
-import { IClothes } from 'store/types';
+import { IClothesResponse } from 'store/types';
 
 import { Card } from 'components/card';
 
 import { CardsWrapper } from './styles';
 
 interface IProps {
-  goods: IClothes[] | undefined;
+  goods: IClothesResponse[];
 }
 
 export const GoodsBlock: FC<IProps> = ({ goods }) => (

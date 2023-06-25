@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { getPriceWithoutDiscount } from 'helpers/get-price-without-discount';
 import { getRating } from 'helpers/get-rating';
 
-import { IClothes } from 'store/types';
+import { IClothesResponse } from 'store/types';
 
 import {
   CardWrapper,
@@ -17,7 +17,7 @@ import {
   Title,
 } from './styles';
 
-export const Card: FC<IClothes> = ({
+export const Card: FC<IClothesResponse> = ({
   discount,
   category,
   id,
@@ -31,12 +31,15 @@ export const Card: FC<IClothes> = ({
   return (
     <CardWrapper>
       <Link href={`/${category}/${id}`}>
-        <Image
-          src={images.length > 0 ? images[0].url : ''}
-          alt={name}
-          width={235}
-          height={318}
-        />
+        {!!images?.length && (
+          <Image
+            src={images[0].url || ''}
+            alt={name || ''}
+            width={235}
+            height={318}
+          />
+        )}
+
         <Title>{name}</Title>
         <Info>
           <InfoAboutPrice>

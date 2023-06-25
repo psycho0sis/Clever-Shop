@@ -16,6 +16,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@types/react-image-gallery": "^1.2.0",
     "axios": "^1.4.0",
     "mobx": "^6.9.0",
     "mobx-react-lite": "^3.4.3",
@@ -57,6 +58,7 @@
     "postcss": "^8.4.23",
     "postcss-syntax": "^0.36.2",
     "prettier": "^2.8.8",
+    "react-image-gallery": "^1.2.12",
     "storybook": "^7.0.11",
     "stylelint": "^15.4.0",
     "stylelint-config-rational-order": "^0.1.2",

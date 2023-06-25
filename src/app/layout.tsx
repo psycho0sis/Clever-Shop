@@ -26,8 +26,8 @@ export default function RootLayout({
           <TopBar />
           <Container>
             <Header />
-            {children}
           </Container>
+          {children}
         </StyledComponentsRegistry>
       </body>
     </html>
