@@ -8684,6 +8684,11 @@ react-element-to-jsx-string@^15.0.0:
     is-plain-object "5.0.0"
     react-is "18.1.0"
 
+react-image-gallery@^1.2.12:
+  version "1.2.12"
+  resolved "https://registry.yarnpkg.com/react-image-gallery/-/react-image-gallery-1.2.12.tgz#b08a633cc336bab2a5afdb96941e023925043c6a"
+  integrity sha512-JIh85lh0Av/yewseGJb/ycg00Y/weQiZEC/BQueC2Z5jnYILGB6mkxnrOevNhsM2NdZJpvcDekCluhy6uzEoTA==
+
 react-inspector@^6.0.0:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/react-inspector/-/react-inspector-6.0.1.tgz#1a37f0165d9df81ee804d63259eaaeabe841287d"

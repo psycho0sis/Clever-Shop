@@ -11,17 +11,23 @@ interface IReview {
   text: string;
 }
 
-export interface IClothes {
-  brand: string;
-  category: 'men' | 'women';
-  discount: string;
-  id: string;
-  images: { color: string; url: string; id?: string }[];
-  material: string;
-  name: string;
-  particulars: IParticulars;
-  price: number;
-  rating: number;
-  reviews: IReview[];
-  sizes: string[];
+export interface IImage {
+  color: string;
+  url: string;
+  id?: string;
+}
+
+export interface IClothesResponse {
+  brand?: string;
+  category?: 'men' | 'women';
+  discount?: string;
+  id?: string;
+  images?: IImage[];
+  material?: string;
+  name?: string;
+  particulars?: IParticulars;
+  price?: number;
+  rating?: number;
+  reviews?: IReview[];
+  sizes?: string[];
 }

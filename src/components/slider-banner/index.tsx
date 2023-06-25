@@ -1,14 +1,14 @@
 'use client';
 
 import type { FC } from 'react';
-import Image from 'next/image';
 
 import { useCurrentSlide } from 'hooks/use-current-slide';
 
+import { NextButton } from 'components/ui/slider-buttons/next-button';
+import { PrevButton } from 'components/ui/slider-buttons/prev-button';
+
 import {
   Banner,
-  NextButton,
-  PrevButton,
   SliderContent,
   SliderWrapper,
   Subtitle,
@@ -33,14 +33,10 @@ export const SliderBanner: FC<IPops> = ({ children }) => {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
     >
-      <PrevButton onClick={handlePrevSlide}>
-        <Image
-          src='/images/prev-arrow.svg'
-          alt='Previous image'
-          width={7}
-          height={14}
-        />
-      </PrevButton>
+      <PrevButton
+        handlePrevSlide={handlePrevSlide}
+        position={{ top: 47, left: 4 }}
+      />
       <Banner>
         <Subtitle>BANNER</Subtitle>
         <Title>your Title text</Title>
@@ -50,14 +46,10 @@ export const SliderBanner: FC<IPops> = ({ children }) => {
       >
         {children}
       </SliderContent>
-      <NextButton onClick={handleNextSlide}>
-        <Image
-          src='/images/next-arrow.svg'
-          alt='Next image'
-          width={7}
-          height={14}
-        />
-      </NextButton>
+      <NextButton
+        handleNextSlide={handleNextSlide}
+        position={{ top: 47, right: 4 }}
+      />
     </SliderWrapper>
   );
 };

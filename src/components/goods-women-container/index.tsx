@@ -7,7 +7,7 @@ import { observer } from 'mobx-react-lite';
 import clothes from 'store/clothes';
 
 import { GoodsBlock } from 'components/goods-block';
-import { GoodsSkeleton } from 'components/goods-skeleton';
+import { GoodsSkeleton } from 'components/skeletons/goods-skeleton';
 
 export const GoodsWomenContainer: FC = observer(() => {
   const { getWomenClothes, womenClothes } = clothes;
